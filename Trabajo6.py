@@ -92,3 +92,15 @@ elif lengua_origen == "Alemán":
         palabra_cercana, distancia = encontrar_palabra_cercana(palabra_usuario, D_ingles)
         if distancia <= 2:  # Puedes ajustar este umbral según tus necesidades
             st.write(f"- Inglés: Dieses Wort steht nicht in Wörterbuch. Hast du '{palabra_cercana}' gemeint?")
+
+#import streamlit as st
+from PIL import Image  # Importar la clase Image de la biblioteca PIL (Python Imaging Library)
+
+# Cargar la imagen
+imagen = Image.open("animalesdomesticos.jpg")
+
+# Redimensionar la imagen si es necesario
+imagen = imagen.resize((300, 200))
+
+# Mostrar la imagen en Streamlit
+st.image(imagen, caption='Te presentamos a los animales domésticos más lindos del mundo')
