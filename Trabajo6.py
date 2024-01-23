@@ -24,6 +24,29 @@ st.markdown("<p style='color: blue; font-size: 32px; font-weight: bold;'>¡Tradu
 
 st.write("Este es un traductor automático de español al inglés y al alemán para el campo semántico de animales domésticos. Esperamos que te sea útil :)")
 
+#Imagen de animales
+#import streamlit as st
+from PIL import Image  # Importar la clase Image de la biblioteca PIL (Python Imaging Library)
+
+# Cargar la imagen
+imagen = Image.open("animalesdomesticos.jpg")
+
+
+
+# Mostrar la imagen en Streamlit
+
+col1, col2, col3 = st.columns(3)
+
+with col1:
+    st.write(' ')
+
+with col2:
+    st.image(imagen, caption="Te presentamos a los animales domésticos más lindos del mundo")
+    # Redimensionar la imagen si es necesario
+    imagen = imagen.resize((1000, 1000))
+with col3:
+    st.write(' ')
+
 # Usuario elige la lengua de origen
 lengua_origen = st.selectbox("Selecciona la lengua de origen:", ["Español", "Inglés", "Alemán"])
 
@@ -93,14 +116,3 @@ elif lengua_origen == "Alemán":
         if distancia <= 2:  # Puedes ajustar este umbral según tus necesidades
             st.write(f"- Inglés: Dieses Wort steht nicht in Wörterbuch. Hast du '{palabra_cercana}' gemeint?")
 
-#import streamlit as st
-from PIL import Image  # Importar la clase Image de la biblioteca PIL (Python Imaging Library)
-
-# Cargar la imagen
-imagen = Image.open("animalesdomesticos.jpg")
-
-# Redimensionar la imagen si es necesario
-imagen = imagen.resize((300, 200))
-
-# Mostrar la imagen en Streamlit
-st.image(imagen, caption='Te presentamos a los animales domésticos más lindos del mundo')
